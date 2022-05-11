@@ -1,5 +1,5 @@
-import { green, orange, purple } from "@mui/material/colors";
-import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
+import { PaletteMode } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
 // declare module "@mui/material/styles" {
 //   interface Theme {
 //     status: {
@@ -13,15 +13,33 @@ import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 //     };
 //   }
 // }
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: purple[500],
+export const ThemePicker = (mode: 'light' | 'dark')=>{ 
+  const theme = createTheme({
+    palette: {
+      mode,
+      primary: {
+        main: "#d23669",
+        ...(mode === "dark" && {
+          main: "#ffa7c4",
+        }),
+      },
+      secondary: {
+        main: "#222",
+        ...(mode === "dark" && {
+          main: "#e5e5e6",
+        }),
+      },
+      ...(mode === "dark" && {
+        background: {
+          default: "#282c35",
+          paper: 'red',
+        },
+      }),
     },
-    secondary: {
-      main: green[500],
-    },
-  },
-});
+  });
+  return theme
+} 
+ 
 
-export default theme;
+
+ 

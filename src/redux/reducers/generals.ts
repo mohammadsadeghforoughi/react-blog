@@ -1,26 +1,30 @@
-import { BoxActionTypes } from '../actions'
+import { GeneralActionTypes } from "../actions";
 
-const initialState = {
-  breadCrumbLocation: []
-}
+const initialState: IInitiateState = {
+  themeMode: "dark",
+};
 
 interface IArgs {
-  type: string
-  payload?: any
+  type: string;
+  payload?: any;
 }
 
 const reducer = (state = initialState, { type, payload }: IArgs) => {
   switch (type) {
-    case BoxActionTypes.ADD_AUTO_BOX_WITHDRAW: {
+    case GeneralActionTypes.THEME_MODE: {
       return {
         ...state,
-        ...payload
-      }
+        themeMode: payload,
+      };
     }
     default: {
-      return state
+      return state;
     }
   }
-}
+};
 
-export { reducer as generalsReducer }
+export { reducer as generalsReducer };
+
+interface IInitiateState {
+  themeMode: "dark" | "light";
+}

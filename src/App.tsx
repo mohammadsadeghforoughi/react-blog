@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { Provider } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { Provider, useSelector } from "react-redux";
 import { routes } from "./routes/routes";
-import store from "./redux/store";
+import store, { RootState } from "./redux/store";
 import { HashRouter as Router } from "react-router-dom";
 import { ErrorBoundary } from "./components/Error-Boundary";
 import { ThemeProvider } from "@mui/material";
-import theme from "./theme";
+import {ThemePicker} from "./theme";
+import CssBaseline from "@mui/material/CssBaseline";
+
 const App: React.FC = () => {
   return (
     <ErrorBoundary>
@@ -17,9 +19,15 @@ const App: React.FC = () => {
 };
 
 const InnerApp: React.FC = () => {
+  const ThemeMode = useSelector((state: RootState) => state.generals.themeMode);
+  const [Theme, setTheme] = useState<any>(ThemePicker('dark'));
+  useEffect(()=>{
+    setTheme(ThemePicker(ThemeMode))
+  }, [ThemeMode])
   return (
     <React.Fragment>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={Theme}>
+        <CssBaseline />
         <Router>{routes}</Router>
       </ThemeProvider>
     </React.Fragment>
