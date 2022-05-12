@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Provider, useSelector } from "react-redux";
 import { routes } from "./routes/routes";
 import store, { RootState } from "./redux/store";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import { ErrorBoundary } from "./components/Error-Boundary";
 import { ThemeProvider } from "@mui/material";
 import {ThemePicker} from "./theme";
 import CssBaseline from "@mui/material/CssBaseline";
-import { _FetchPostList } from "./services";
 
 const App: React.FC = () => {
   return (
@@ -24,7 +23,6 @@ const InnerApp: React.FC = () => {
   const [Theme, setTheme] = useState<any>(ThemePicker('dark'));
   useEffect(()=>{
     setTheme(ThemePicker(ThemeMode))
-    _FetchPostList()
   }, [ThemeMode])
   return (
     <React.Fragment>

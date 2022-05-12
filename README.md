@@ -1,5 +1,5 @@
 # React blog using Mui 5, Redux and, TypeScript
-Simple React Blog - Live Demo
+Simple React Blog
 
 
 ## Project Stack
