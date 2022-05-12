@@ -7,6 +7,7 @@ import { ErrorBoundary } from "./components/Error-Boundary";
 import { ThemeProvider } from "@mui/material";
 import {ThemePicker} from "./theme";
 import CssBaseline from "@mui/material/CssBaseline";
+import { _FetchPostList } from "./services";
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const InnerApp: React.FC = () => {
   const [Theme, setTheme] = useState<any>(ThemePicker('dark'));
   useEffect(()=>{
     setTheme(ThemePicker(ThemeMode))
+    _FetchPostList()
   }, [ThemeMode])
   return (
     <React.Fragment>
