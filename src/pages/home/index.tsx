@@ -4,6 +4,7 @@ import { Box, Container, Switch, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { toggleThemeMode } from "../../redux/actions";
 import { Header } from "../../components/Header";
+import { AuthorBox } from "../../components/AuthorBox";
 const Home: React.FC<any> = (props) => {
   const dispatch = useDispatch();
   const handleToggleTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,6 +14,7 @@ const Home: React.FC<any> = (props) => {
     <>
       <Container>
         <Header varient="main" handleToggleTheme={handleToggleTheme}></Header>
+        <AuthorBox/>
       </Container>
     </>
   );
