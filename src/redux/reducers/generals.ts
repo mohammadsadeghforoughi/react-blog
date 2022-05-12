@@ -9,6 +9,10 @@ interface IArgs {
   payload?: any;
 }
 
+interface IInitiateState {
+  themeMode: "dark" | "light";
+}
+
 const reducer = (state = initialState, { type, payload }: IArgs) => {
   switch (type) {
     case GeneralActionTypes.THEME_MODE: {
@@ -25,6 +29,4 @@ const reducer = (state = initialState, { type, payload }: IArgs) => {
 
 export { reducer as generalsReducer };
 
-interface IInitiateState {
-  themeMode: "dark" | "light";
-}
+

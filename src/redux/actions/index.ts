@@ -1,8 +1,10 @@
-import { action } from "typesafe-actions";
+import { GeneralActionTypes, toggleThemeMode } from "./generals";
+import { PostsActionTypes, addPostDetail, addPostList } from "./posts";
 
-export const GeneralActionTypes = {
-  THEME_MODE: "@@general/THEME_MODE",
+export {
+  GeneralActionTypes,
+  PostsActionTypes,
+  toggleThemeMode,
+  addPostDetail,
+  addPostList,
 };
-
-export const toggleThemeMode = (data: any) =>
-  action(GeneralActionTypes.THEME_MODE, data);
