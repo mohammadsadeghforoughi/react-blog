@@ -1,26 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "@mui/material";
 import { Header } from "../../components/Header";
 import { AuthorBox } from "../../components/AuthorBox";
 import { PostList } from "../../components/PostList";
 import useStyles from "./Home.style";
 import { Spacer } from "../../components/Spacer";
-
-let posts = [
-  { title: "test1", subTitle: "test111", text: "test111111", id: "1" },
-  { title: "test1", subTitle: "test111", text: "test111111", id: "1" },
-  { title: "test1", subTitle: "test111", text: "test111111", id: "1" },
-  { title: "test1", subTitle: "test111", text: "test111111", id: "1" },
-  { title: "test1", subTitle: "test111", text: "test111111", id: "1" },
-  { title: "test1", subTitle: "test111", text: "test111111", id: "1" },
-  { title: "test1", subTitle: "test111", text: "test111111", id: "1" },
-  { title: "test1", subTitle: "test111", text: "test111111", id: "1" },
-  { title: "test1", subTitle: "test111", text: "test111111", id: "1" },
-  { title: "test1", subTitle: "test111", text: "test111111", id: "1" },
-];
+import { IPostData, _FetchPostList } from "../../services";
 
 const Home: React.FC<any> = (props) => {
   const classes = useStyles();
+  const [posts, setPosts] = useState<Array<IPostData>>([]);
+  
+  useEffect(() => {
+    _FetchPostList().then((data) => {
+      setPosts(data);
+    });
+  }, []);
+
   return (
     <>
       <Container className={classes.root}>

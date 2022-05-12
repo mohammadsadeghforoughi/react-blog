@@ -1,10 +1,11 @@
 import { Fade, Grid, Slide, Typography } from "@mui/material";
 import React from "react";
+import { IPostData } from "../../services";
 import { PostItem } from "../PostItem";
 import useStyles from "./PostList.style";
 
 interface IPostList {
-  posts: { title: string; subTitle: string; text: string; id: string }[];
+  posts: IPostData[];
 }
 
 export const PostList: React.FC<IPostList> = (props) => {
@@ -23,7 +24,7 @@ export const PostList: React.FC<IPostList> = (props) => {
             <Grid item>
               <PostItem
                 title={post.title}
-                subtitle={post.subTitle}
+                subtitle={`${post.date} • ${"☕️ ".repeat(post.minsRead)} `}
                 text={post.text}
                 key={index}
                 id={post.id}
