@@ -1,8 +1,9 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleThemeMode } from "../../redux/actions";
+import { RootState } from "../../redux/store";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 65,
@@ -52,6 +53,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 export function ThemeSwitch() {
+  const CurrentThemeMode = useSelector((state: RootState)=>state.generals.themeMode) 
   const dispatch = useDispatch();
   const handleToggleTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(toggleThemeMode(e.target.checked ? "light" : "dark"));
@@ -60,6 +62,7 @@ export function ThemeSwitch() {
     <MaterialUISwitch
       onChange={handleToggleTheme}
       sx={{ m: 1 }}
+      checked={CurrentThemeMode=='light'}
     />
   );
 }
