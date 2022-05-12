@@ -4,7 +4,6 @@ import { ThemeSwitch } from "../ThemeToggleSwitch";
 import useStyles from "./Header.style";
 
 interface IHeader {
-  handleToggleTheme: (e: React.ChangeEvent<HTMLInputElement>) => void;
   varient: "main" | "other";
 }
 
