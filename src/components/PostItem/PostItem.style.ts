@@ -14,6 +14,7 @@ export default makeStyles((theme: Theme) =>
       fontWeight: "900 !important",
       color: theme.palette.primary.main,
       cursor: "pointer",
+
     },
     subTitle: {
       fontSize: "80% !important",

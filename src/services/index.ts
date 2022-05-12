@@ -1,5 +1,6 @@
 import axios from "axios";
 import moment from "moment";
+import { capitalizeFirstLetter } from "../utils/wordCapitlize";
 
 const BASE_URL = "https://jsonplaceholder.typicode.com";
 
@@ -20,7 +21,7 @@ const _FetchPostList = async (): Promise<IPostData[]> => {
   let res: IPostData[] = [];
   for (let post of posts.data) {
     res.push({
-      title: post.title,
+      title: capitalizeFirstLetter(post.title),
       date: moment().subtract(post.id, "days").format("MMMM DD, YYYY"),
       text: post.body,
       minsRead: Math.round(Math.floor(Math.random() * (30 - 1 + 1) + 1) / 5),
@@ -33,7 +34,7 @@ const _FetchPostList = async (): Promise<IPostData[]> => {
 const _FetchPostDetails = async (postId: string): Promise<IPostData> => {
   let post = await instance.get(`/posts/${postId}`);
   return {
-    title: post.data.title,
+    title: capitalizeFirstLetter(post.data.title),
     date: moment().subtract(post.data, "days").format("MMMM DD, YYYY"),
     text: post.data.body,
     minsRead: Math.round(Math.floor(Math.random() * (15 - 1 + 1) + 1) / 5),
