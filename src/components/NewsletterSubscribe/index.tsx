@@ -36,7 +36,7 @@ export const NewsletterSubscribe: React.FC = () => {
           </Box>
         </Grid>
         <Grid xs={6}>
-          {" "}
+          
           <Box className={classes.rightBox}>
             <Grid container flexDirection={"column"} spacing={2}>
               <Grid item>

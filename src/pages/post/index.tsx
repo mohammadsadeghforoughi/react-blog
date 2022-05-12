@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { Header } from "../../components/Header";
 import { AuthorBox } from "../../components/AuthorBox";
 import { PostList } from "../../components/PostList";
@@ -9,6 +9,7 @@ import { Link, useParams } from "react-router-dom";
 import { PostDetail } from "../../components/PostDetail";
 import { NewsletterSubscribe } from "../../components/NewsletterSubscribe";
 import { IPostData, _FetchPostDetails, _FetchPostList } from "../../services";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Post: React.FC<any> = (props) => {
   const classes = useStyles();
@@ -18,7 +19,7 @@ const Post: React.FC<any> = (props) => {
   useEffect(() => {
     _FetchPostDetails(`${postId}`).then((data) => {
       console.log(data);
-      
+
       setPost(data);
     });
   }, [postId]);
@@ -27,16 +28,20 @@ const Post: React.FC<any> = (props) => {
       <Container className={classes.root}>
         <Header varient="other"></Header>
         <Spacer height="3rem" />
-        {post && (
+        {post ? (
           <>
-            {" "}
+            
             <PostDetail
               title={post.title}
               subtitle={`${post.date} • ${"☕️ ".repeat(post.minsRead)} `}
               text={post.text}
             />
-            <Spacer height="6rem" />{" "}
+            <Spacer height="6rem" />
           </>
+        ) : (
+          <Box className={classes.loadingContainer}>
+            <CircularProgress />
+          </Box>
         )}
         <NewsletterSubscribe />
         <Spacer height="2rem" />

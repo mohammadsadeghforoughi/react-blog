@@ -18,5 +18,12 @@ export default makeStyles((theme: Theme) =>
       fontSize: "1rem !important",
       fontWeight: "700 !important",
     },
+    loadingContainer: {
+      width: "100% !important",
+      height: "300px !important",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
   })
 );
