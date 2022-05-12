@@ -1,5 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import useStyles from "./PostItem.style";
 
 interface IPostItem {
@@ -11,6 +12,7 @@ interface IPostItem {
 
 export const PostItem: React.FC<IPostItem> = (props) => {
   const classes = useStyles();
+  const navigate = useNavigate();
 
   return (
     <Grid
@@ -21,7 +23,7 @@ export const PostItem: React.FC<IPostItem> = (props) => {
     >
       <Grid item>
         <Typography
-          onClick={() => console.log(props.id)}
+          onClick={() => navigate(`/post/${props.id}`)}
           variant="h3"
           className={classes.title}
         >

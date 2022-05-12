@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Provider, useSelector } from "react-redux";
 import { routes } from "./routes/routes";
 import store, { RootState } from "./redux/store";
-import { HashRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { ErrorBoundary } from "./components/Error-Boundary";
 import { ThemeProvider } from "@mui/material";
 import {ThemePicker} from "./theme";
