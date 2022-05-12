@@ -5,7 +5,18 @@ export default makeStyles((theme: Theme) =>
   createStyles({
     root: {
       maxWidth: "42rem !important",
-      paddingTop:'2rem'
+      paddingTop: "2rem",
+    },
+    title: {
+      fontFamily: "Montserrat !important",
+      fontSize: "1.5rem !important",
+      color: theme.palette.primary.main,
+    },
+    backLink: {
+      color: theme.palette.primary.main,
+      fontFamily: "Montserrat !important",
+      fontSize: "1rem !important",
+      fontWeight: "700 !important",
     },
   })
 );
