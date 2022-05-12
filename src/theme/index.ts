@@ -1,4 +1,5 @@
 import { PaletteMode } from "@mui/material";
+import { grey } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 // declare module "@mui/material/styles" {
 //   interface Theme {
@@ -13,7 +14,7 @@ import { createTheme } from "@mui/material/styles";
 //     };
 //   }
 // }
-export const ThemePicker = (mode: 'light' | 'dark')=>{ 
+export const ThemePicker = (mode: "light" | "dark") => {
   const theme = createTheme({
     palette: {
       mode,
@@ -32,14 +33,29 @@ export const ThemePicker = (mode: 'light' | 'dark')=>{
       ...(mode === "dark" && {
         background: {
           default: "#282c35",
-          paper: 'red',
+          paper: "red",
         },
       }),
     },
+    components: {
+      MuiSwitch: {
+        styleOverrides: {
+          thumb: {
+            backgroundColor: "#fff",
+          },
+          track: {
+            backgroundColor: grey[900],
+          },
+          switchBase: {
+            color: "#ccc", // this is working
+            "&$checked": {
+              // this is not working
+              color: "red",
+            },
+          },
+        },
+      },
+    },
   });
-  return theme
-} 
- 
-
-
- 
+  return theme;
+};
