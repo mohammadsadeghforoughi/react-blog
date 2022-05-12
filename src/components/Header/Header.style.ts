@@ -7,19 +7,18 @@ export default makeStyles((theme: Theme) =>
     root: {
       width: "100%",
       justifyContent: "space-between",
-      alignItems:'center'
+      alignItems: "center",
     },
     title: {
       fontFamily: "Montserrat !important",
+      cursor: "pointer",
     },
     titleMainVarient: {
       fontSize: "2rem !important",
-
-    }, 
-    titleOtherVarient:{
+    },
+    titleOtherVarient: {
       fontSize: "1.5rem !important",
-      color: theme.palette.primary.main 
-
-    }
+      color: theme.palette.primary.main,
+    },
   })
 );

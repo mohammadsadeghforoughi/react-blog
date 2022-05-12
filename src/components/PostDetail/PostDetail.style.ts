@@ -13,7 +13,6 @@ export default makeStyles((theme: Theme) =>
       fontFamily: "Montserrat !important",
       fontWeight: "900 !important",
       color: theme.palette.secondary.main,
-      cursor: "pointer",
     },
     subTitle: {
       fontSize: "80% !important",

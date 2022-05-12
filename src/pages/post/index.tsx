@@ -35,6 +35,8 @@ const Post: React.FC<any> = (props) => {
         <Link className={classes.backLink} to={"/"}>
           ← All Posts
         </Link>
+        <Spacer height="2rem" />
+
       </Container>
     </>
   );
