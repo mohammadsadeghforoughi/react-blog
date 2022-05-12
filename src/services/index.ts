@@ -35,8 +35,8 @@ const _FetchPostDetails = async (postId: string): Promise<IPostData> => {
   return {
     title: post.data.title,
     date: moment().subtract(post.data, "days").format("MMMM DD, YYYY"),
-    text: post.data,
-    minsRead: Math.round(Math.floor(Math.random() * (30 - 1 + 1) + 1) / 5),
+    text: post.data.body,
+    minsRead: Math.round(Math.floor(Math.random() * (15 - 1 + 1) + 1) / 5),
     id: post.data.id,
   };
 };

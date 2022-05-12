@@ -10,7 +10,7 @@ import { IPostData, _FetchPostList } from "../../services";
 const Home: React.FC<any> = (props) => {
   const classes = useStyles();
   const [posts, setPosts] = useState<Array<IPostData>>([]);
-  
+
   useEffect(() => {
     _FetchPostList().then((data) => {
       setPosts(data);
