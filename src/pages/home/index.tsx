@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { toggleThemeMode } from "../../redux/actions";
 import { Header } from "../../components/Header";
 import { AuthorBox } from "../../components/AuthorBox";
+import { PostItem } from "../../components/PostItem";
 const Home: React.FC<any> = (props) => {
   const dispatch = useDispatch();
   const handleToggleTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,7 +15,8 @@ const Home: React.FC<any> = (props) => {
     <>
       <Container>
         <Header varient="main" handleToggleTheme={handleToggleTheme}></Header>
-        <AuthorBox/>
+        <AuthorBox />
+        <PostItem title="test" subtitle="test2" text="test34" />
       </Container>
     </>
   );
